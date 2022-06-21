@@ -1,100 +1,75 @@
-# 03 JavaScript: Password Generator
+# Profile Page  
 
-## Your Task
+In this project we were given the html and css for a password generator website. What we had to do was
+configure the button to generate a random password with specific types of characters the user would want.
+We had to ask for multiple types of characters such as lower case, upper case, numbers and special characters. 
 
-This week's Challenge requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
+The user will be prompted to either enter ok to accept that type of character in their password or hit cancel to not have it in
+their password. If they want a variety of characters and wants to mix and match them to fit their desire it 
+allows the user to do that also. 
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
+If the use it hit cancel when selecting a number between 8 and 128 the program stops and doesn't generate a new password.
+This ensures that the user follows the rules of the code and is bound by the constrants of the number of characters.
 
-## User Story
+After the user goes through the whole clicking process of deciding what they want in their password, a password with random
+characters from their selected values will be generated and it will replace the text in the box with the new password.
 
+## Authors
+
+- [@marshallrizzuto](https://github.com/Zoot83)
+
+Website: https://zoot83.github.io/Password_Generator/
+## Features
+
+- Javascript
+- object creation
+- Controlling Object variables
+- Storing and referring to values
+- Understanding Functions
+- Function returned values
+
+
+
+## Demo
+
+![image](https://user-images.githubusercontent.com/105519029/174901022-b29dc05d-ec57-401a-9deb-f75a097647c9.png)
+
+![image](https://user-images.githubusercontent.com/105519029/174901054-820c2019-9fb7-48f5-8176-a2f1001ba050.png)
+
+
+
+## Usage/Examples
+
+  I have included examples of code that will demonstrate the power of calling function to eliminate the amount of repeated code. This examples show that one
+ function will be called multiple times with different values being passed into the functions parameters. This is also showing have the value of a function will be returned and used in another function elsewhere in the code.  
+
+   password.hasLowerCase = confirm("Would you like to have lower case characters?");
+
+  password.hasUpperCase = confirm("Would you like to have upper case characters?");
+
+  password.hasNumeric = confirm("Would you like to have numeric characters?");
+
+  password.hasSpecial = confirm("Would you like to have special characters?");
+ 
+
+  return generateNewString(password.setLength);
 ```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
 
-## Acceptance Criteria
+This next section will demonsrate the use of classes and the vaiables associated with those classes to store values. This is needed in order to reuse this code 
+if other characters were to be added later.
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+var included = {
+  lowerCharacters: "abcdefghijklmnopqrstuvwxyz",
+  upperCharacters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numberCharacters: "0123456789",
+  specialCharacters: "~`!#$%^&*+=-[]\\\';,/{}|\":<>?"
+}
 
-## Mock-Up
-
-The following image shows the web application's appearance and functionality:
-
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+//This is a class for the password.
+var password={
+  setLength: 0,
+  hasLowerCase: false,
+  hasUpperCase: false,
+  hasNumeric: false,
+  hasSpecial: false,
+};
